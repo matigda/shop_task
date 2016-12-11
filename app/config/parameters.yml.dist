@@ -20,3 +20,5 @@ parameters:
     rabbit_host:        rabbit
     rabbit_port:        5672
     results_on_page: 5
+    elasticsearch_host: elasticsearch
+    elasticsearch_port: 9200

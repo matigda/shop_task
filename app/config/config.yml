@@ -80,7 +80,7 @@ swiftmailer:
 
 fos_elastica:
     clients:
-        default: { host: elasticsearch, port: 9200 }
+        default: { host: '%elasticsearch_host%', port: '%elasticsearch_port%' }
     indexes:
         symfony:
             types:

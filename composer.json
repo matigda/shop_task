@@ -29,7 +29,7 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
         "doctrine/doctrine-migrations-bundle": "^1.0",
-        "friendsofsymfony/elastica-bundle": "^3.2",
+        "friendsofsymfony/elastica-bundle": "dev-master",
         "php-amqplib/rabbitmq-bundle": "^1.12",
         "knplabs/knp-paginator-bundle": "^2.5",
         "ramsey/uuid": "^3.5",
