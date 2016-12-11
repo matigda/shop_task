@@ -18,7 +18,7 @@ class Mailer implements MailerInterface
         $this->mailer = $mailer;
     }
 
-    public function sendMailAboutNewProduct(int $productId)
+    public function sendMailAboutNewProduct(string $productId)
     {
         $message = Swift_Message::newInstance('Wonderful Subject')
             ->setFrom(['john@doe.com' => 'John Doe'])
