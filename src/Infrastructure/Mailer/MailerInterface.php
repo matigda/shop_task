@@ -5,5 +5,5 @@ namespace Infrastructure\Mailer;
 
 interface MailerInterface
 {
-    public function sendMailAboutNewProduct(int $productId);
+    public function sendMailAboutNewProduct(string $productId);
 }
