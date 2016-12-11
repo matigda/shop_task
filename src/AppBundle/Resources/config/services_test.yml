@@ -1,0 +1,3 @@
+services:
+    old_sound_rabbit_mq.product_producer:
+        class: Infrastructure\RabbitMQ\InMemoryProducer

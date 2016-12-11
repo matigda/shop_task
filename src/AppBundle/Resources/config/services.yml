@@ -1,0 +1,35 @@
+services:
+    provider.product:
+        class: AppBundle\Provider\ProductProvider
+        arguments:
+            - '@fos_elastica.finder.symfony.product'
+            - '@knp_paginator'
+            - '%results_on_page%'
+
+    consumer.product:
+        class: Infrastructure\RabbitMQ\ProductAddedConsumer
+        arguments:
+            - '@app.mailer'
+            - '@monolog.logger.rabbit'
+
+    app.mailer:
+        class: Infrastructure\Mailer\Mailer
+        arguments:
+            - '@mailer'
+
+    app.exception_listener:
+        class: AppBundle\Event\ProductAddedEventListener
+        arguments:
+            - '@old_sound_rabbit_mq.product_producer'
+        tags:
+            - { name: kernel.event_listener, event: product.added }
+
+    storage.product:
+        class: Infrastructure\Storage\DoctrineStorage
+        arguments:
+            - '@doctrine.orm.entity_manager'
+
+    command_handler.create_product:
+        class: Domain\CommandHandler\CreateProductCommandHandler
+        arguments:
+            - '@storage.product'

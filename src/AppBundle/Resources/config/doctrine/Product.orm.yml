@@ -1,0 +1,18 @@
+Domain\Entity\Product:
+    type: entity
+    table: product
+    id:
+        id:
+            type: string
+            id: true
+            generator:
+                strategy: NONE
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+        price:
+            type: integer
+    lifecycleCallbacks: {  }

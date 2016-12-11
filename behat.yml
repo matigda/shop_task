@@ -1,0 +1,18 @@
+default:
+  suites:
+    application:
+      paths: [ "%paths.base%/features/application" ]
+      contexts:
+        - ApplicationContext:
+          kernel: "@kernel"
+      filters:
+        tags: "@application"
+
+  extensions:
+    Behat\Symfony2Extension:
+      kernel:
+        env: test
+    Behat\MinkExtension:
+      sessions:
+        default:
+          symfony2: ~

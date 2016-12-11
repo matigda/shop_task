@@ -1,0 +1,10 @@
+AppBundle\Form\Model\Product:
+    properties:
+        name:
+            - NotBlank: ~
+        description:
+            - NotBlank: ~
+            - Length:
+                min: 100
+        price:
+            - GreaterThan: 0

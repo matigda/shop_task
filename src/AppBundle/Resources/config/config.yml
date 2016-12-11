@@ -1,0 +1,7 @@
+monolog:
+    channels: [rabbit]
+    handlers:
+        rabbit:
+            type:     stream
+            path:     "%kernel.logs_dir%/%kernel.environment%_rabbit.log"
+            channels: [rabbit]

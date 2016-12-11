@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+
+    {% stylesheets 'bundles/app/css/*' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% block stylesheets %}
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+{% block report %}
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="text-right">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="{{ path('homepage') }}">Lista produktów</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="{{ path('new-product') }}">Dodaj nowy produkt</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        {% if app.user %}
+                            <li>
+                                <a href="{{ path('logout') }}">Wyloguj</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+{% endblock %}
+<div class="container">
+    <!-- Heading Row -->
+    <div class="row">
+        {% block body %}
+        {% endblock %}
+    </div>
+    <!-- /.row -->
+
+    <hr>
+    {% block footer %}
+
+    {% endblock %}
+
+</body>
+</html>
